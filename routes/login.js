@@ -20,14 +20,15 @@ router.post('/', function(req, res){
 
   if(username && password){
     connection.query('SELECT * FROM userLogin WHERE username = ? AND password = ?', [username, password], function(error, results, field){
-      if(results.length > 0){
+      res.send(results);
+      /*if(results.length > 0){
         req.session.loggedin = true;
         req.session.username = username;
         res.redirect('/users');
       }
       else{
         res.send('Falsche Daten!');
-      }
+      }*/
       res.end();
     });
   }
