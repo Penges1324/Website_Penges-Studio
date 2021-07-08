@@ -4,9 +4,9 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
 	host     : 'localhost:3306',
-	user     : 'pengesst_',
+	user     : 'pengesst',
 	password : 'Pesa!739',
-	database : 'login'
+	database : 'pengesst_'
 });
 
 /* GET users listing. */
@@ -20,7 +20,7 @@ router.post('/', function(req, res){
 
   if(username && password){
     connection.query('SELECT * FROM userlogin WHERE username = ? AND password = ?', [username, password], function(error, results, field){
-      if(results.length > 0){
+      if(results != null && results.length > 0){
         req.session.loggedin = true;
         req.session.username = username;
         res.redirect('/users');
