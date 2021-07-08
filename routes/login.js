@@ -27,7 +27,7 @@ router.post('/', function(req, res){
         res.redirect('/users');
       }
       else{
-        res.send('error:' + error + ' res: ' + results + ' field: ' + field);
+        res.send('Falsche Daten!');
       }
       res.end();
     });
