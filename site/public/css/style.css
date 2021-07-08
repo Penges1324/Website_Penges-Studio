@@ -1,0 +1,23 @@
+body, html{
+    height: 100%;
+    padding: 0rem;
+    margin: 0.5rem;
+    overflow: hidden;
+    align-items: center;
+}
+
+.image{
+    height: 99.9%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-success:focus{
+    box-shadow: none;
+}
