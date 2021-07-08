@@ -14,6 +14,8 @@ var loginRouter = require('./routes/login');
 
 var app = express();
 
+var server = http.createServer(app);
+
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
@@ -54,8 +56,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-var server = http.createServer(app);
 
 server.listen(port);
 server.on('error', onError);
