@@ -46,7 +46,6 @@ router.post('/', function(req, res){
           } 
         )*/
         res.redirect('/');
-        connection.end();
       }
       else{
         if(error.fatal)
