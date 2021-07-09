@@ -26,7 +26,7 @@ router.post('/', function(req, res){
       if(results != null && results.length > 0){
         req.session.loggedin = true;
         req.session.username = username;
-        res.redirect('/users');
+        res.redirect('/');
       }
       else{
         res.send('Falsche Daten!');
