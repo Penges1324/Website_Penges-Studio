@@ -6,10 +6,6 @@ body, html{
     align-items: center;
 }
 
-main{
-    padding-top: 5rem;
-}
-
 .btn-success:focus{
     box-shadow: none;
 }
