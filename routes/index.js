@@ -1,23 +1,23 @@
 var express = require('express');
 var router = express.Router();
-const path = require('path');
-const fs = require('fs');
-const session = require('express-session');
-
-const t = {
-  id: 0,
-  pw: '',
-  name: ''
-}
-
+var mysql = require('mysql');
+var config = require('../libs/config.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.session);
   if(req.session.loggedin){
-    t.name = req.session.username;
+    connection.query('SELECT * FROM game', function(error, results, field){
+      if(results != null && results.length > 0){
+        res.send(results);
+      }
+      else{
+        res.send('Keine Spiele vorhanden!');
+      }
+      res.end();
+    });
   }
-  res.render('index', {t});  
+  else
+    res.redirect('login');
 });
 
 module.exports = router;
