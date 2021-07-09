@@ -28,7 +28,7 @@ router.post('/', function(req, res){
 	var password = req.body.password;
   
   if(username && password){
-    connection.query('SELECT * FROM userLogin WHERE username = ? AND password = ?', [username, password], function(error, results, field){
+    connection.query('SELECT * FROM userlogin WHERE username = ? AND password = ?', [username, password], function(error, results, field){
       if(results != null && results.length > 0){
         req.session.loggedin = true;
         req.session.username = username;
