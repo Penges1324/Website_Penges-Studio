@@ -10,6 +10,18 @@ main{
     padding-top: 5rem;
 }
 
+
 .btn-success:focus{
     box-shadow: none;
+}
+
+@media (max-width: 999.99px){
+    .cardSize{
+        width: 9rem;
+    }
+}
+@media (min-width: 1000px){
+    .cardSize{
+        width: 13rem;
+    }
 }

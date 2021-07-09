@@ -23,8 +23,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/coolesSpiel', function(req, res){
-  res.send('cool');
-})
+  res.redirect('/');
+});
+
+router.get('/nochGeiler', function(req, res){
+  res.redirect('/');
+});
 
 router.post('/', function(req, res){
   req.session.destroy(null); 

@@ -32,7 +32,6 @@ router.post('/', function(req, res){
       if(results != null && results.length > 0){
         req.session.loggedin = true;
         req.session.username = username;
-
         /*fetch("https://ipinfo.io/json?token=37f01cead50cf9").then(
           (response) => response.json()
         ).then(
