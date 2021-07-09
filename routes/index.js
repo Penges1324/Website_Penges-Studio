@@ -3,12 +3,14 @@ var router = express.Router();
 var mysql = require('mysql');
 var config = require('../libs/config.js');
 
+var connection = mysql.createConnection(config.dbOptions);
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if(req.session.loggedin){
-    connection.query('SELECT * FROM game', function(error, results, field){
+    connection.query('SELECT * FROM games', function(error, results, field){
       if(results != null && results.length > 0){
-        res.send(results);
+        res.render('', {results});
       }
       else{
         res.send('Keine Spiele vorhanden!');
