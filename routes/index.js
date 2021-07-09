@@ -22,4 +22,9 @@ router.get('/', function(req, res, next) {
     res.redirect('login');
 });
 
+router.post('/', function(req, res){
+  req.session.destroy(null); 
+  res.redirect('login');
+});
+
 module.exports = router;

@@ -13,9 +13,14 @@ const userData = {
   country: ''
 }
 
+var loginError = {
+  error: ''
+}
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('login');
+  loginError.error = '';
+  res.render('login', {loginError});
 });
 
 router.post('/', function(req, res){
@@ -28,7 +33,7 @@ router.post('/', function(req, res){
         req.session.loggedin = true;
         req.session.username = username;
 
-        fetch("https://ipinfo.io/json?token=37f01cead50cf9").then(
+        /*fetch("https://ipinfo.io/json?token=37f01cead50cf9").then(
           (response) => response.json()
         ).then(
           (jsonResponse) =>{
@@ -39,12 +44,16 @@ router.post('/', function(req, res){
             connection.query('UPDATE userlogin SET data = ? WHERE username = ?', [JSON.stringify(userData), username], function(error, results, field){
             });
           } 
-        )
-
+        )*/
         res.redirect('/');
+        connection.end();
       }
       else{
-        res.send('Falsche Daten!');
+        if(error.fatal)
+          loginError.error = 'Keine Verbindung zum Server!!!';
+        else
+          loginError.error = 'Benutzername / Passwort falsch!';
+        res.render('login', {loginError});
       }
       res.end();
     });

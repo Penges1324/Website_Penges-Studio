@@ -7,23 +7,39 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel='stylesheet' href='/css/style.css' />
+    <link rel="icon" type="image/png" href="https://penges-studio.de/Images/logo.png" />
   </head>
   <body>
-    <div class="row">
-      <% results.forEach(function(results){%>
-        <div class="col-auto">
-          <div class="card" style="width: 18rem;box-shadow:  0 4px 10px -2px rgba(0, 0, 0, 0.3);">
-            <img class="card-img-top" style="max-height:140px;" src="<%- results.image %>">
-            <div class="card-body">
-              <h5 class="card-title"><%= results.name %></h5>
-              <p class="card-text">Download: 56778 ❤️</p>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#"><img src="https://penges-studio.de/Images/logo.png" width="30" height="30" class="d-inline-block align-top"></a>
+        <div class="navbar-collapse collapse show ">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Coming soon!</a>
+              <form method="POST" action="/">
+                <button type="submit" value="logout">Logout</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="">
+      <div class="row">
+        <% results.forEach(function(results){%>
+          <div class="col-auto">
+            <div class="card" style="width: 18rem;box-shadow:  0 4px 10px -2px rgba(0, 0, 0, 0.3);">
+              <img class="card-img-top" style="max-height:140px;" src="<%- results.image %>">
+              <div class="card-body">
+                <h5 class="card-title"><%= results.name %></h5>
+                <p class="card-text">Download: 56778 ❤️</p>
+              </div>
             </div>
           </div>
-        </div>
-      <%}); %>
-    </div>
-      
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <%}); %>
+      </div>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </main>
   </body>
 </html>
