@@ -11,7 +11,7 @@ var dbOptions = {
     port     : '3306',
 	user     : 'root',
 	password : '',
-	database : 'pengesst_'
+	database : 'pengesst_dsadad'
 };
 
 module.exports = {dbOptions: dbOptions};
