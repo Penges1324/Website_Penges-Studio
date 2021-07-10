@@ -6,12 +6,12 @@ const fetch = require("node-fetch");
 
 var connection = mysql.createConnection(config.dbOptions);
 
-const userData = {
+/*const userData = {
   ip: '',
   city: '',
   region: '',
   country: ''
-}
+}*/
 
 var loginError = {
   error: ''
@@ -19,14 +19,14 @@ var loginError = {
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  loginError.error = '';
+  loginError = {};
   res.render('login', {loginError});
 });
 
 router.post('/', function(req, res){
   var username = req.body.username;
 	var password = req.body.password;
-  
+  loginError = {};
   if(username && password){
     connection.query('SELECT * FROM userlogin WHERE username = ? AND password = ?', [username, password], function(error, results, field){
       if(results != null && results.length > 0){
@@ -47,7 +47,7 @@ router.post('/', function(req, res){
         res.redirect('/');
       }
       else{
-        if(error.fatal)
+        if(error)
           loginError.error = 'Keine Verbindung zum Server!!!';
         else
           loginError.error = 'Benutzername / Passwort falsch!';
